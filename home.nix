@@ -73,6 +73,16 @@ in rec {
         log.abbrevCommit = true;
         format.pretty = "oneline";
       };
+
+     ignores = [
+       "#*#"
+       "*.a"
+       "*.o"
+       "*~"
+       "*.elc"
+       "*.so"
+       "result"  ## Sure about this one?
+     ];
     };
   };
 }
