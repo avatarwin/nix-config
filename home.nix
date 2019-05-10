@@ -24,8 +24,6 @@ in rec {
                   (attrNames (readDir path)));
    };
 
-  home.file."Documents".source = mkPersistentLink "Documents";
-
   home.packages = [
     pkgs.htop
   ];
