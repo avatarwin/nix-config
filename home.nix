@@ -28,6 +28,11 @@ in rec {
     pkgs.htop
   ];
 
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
+    defaultCacheTtl = 600;
+  };
 
   programs = {
     direnv.enable = true;
