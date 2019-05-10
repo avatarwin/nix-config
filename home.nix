@@ -62,7 +62,7 @@ in rec {
 
     home-manager = {
       enable = true;
-      path = "...";
+      path = "https://github.com/avatarwin/home-manager/archive/master.tar.gz";
     };
 
     git = {
