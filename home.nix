@@ -24,15 +24,17 @@ in rec {
                   (attrNames (readDir path)));
    };
 
-  home.packages = [
-    pkgs.htop
-  ];
-
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
     defaultCacheTtl = 600;
   };
+
+  home.packages = [
+    pkgs.ripgrep
+    pkgs.htop
+    pkgs.lsof
+  ];
 
   programs = {
     direnv.enable = true;
