@@ -41,6 +41,7 @@ in rec {
 
   home.file.".emacs.d/init.el".source = ./dotfiles/emacs/init.el;
   home.file.".emacs.d/custom.el".source = ./dotfiles/emacs/custom.el;
+  home.file.".zsh/prompts/prompt_nikki_setup".source = ./dotfiles/zsh/prompt_nikki_setup;
 
   programs = {
     direnv.enable = true;
