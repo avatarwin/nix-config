@@ -9,6 +9,8 @@ let home_directory = builtins.getEnv "HOME";
     '';
 
 in rec {
+  ##import ./config/emacs.nix;
+
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -34,7 +36,11 @@ in rec {
     pkgs.ripgrep
     pkgs.htop
     pkgs.lsof
+    pkgs.sbcl
   ];
+
+  home.file.".emacs.d/init.el".source = ./dotfiles/emacs/init.el;
+  home.file.".emacs.d/custom.el".source = ./dotfiles/emacs/custom.el;
 
   programs = {
     direnv.enable = true;
@@ -53,6 +59,11 @@ in rec {
          autoload -U promptinit && promptinit
          prompt nikki
       '';
+
+      shellAliases = {
+        ls = "ls --color=tty";
+      };
+
       plugins = [
       ];
 
