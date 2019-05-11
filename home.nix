@@ -41,6 +41,9 @@ in rec {
 
   home.file.".emacs.d/init.el".source = ./dotfiles/emacs/init.el;
   home.file.".emacs.d/custom.el".source = ./dotfiles/emacs/custom.el;
+
+  ## This should really be in ${zsh.dotDir}...
+
   home.file.".zsh/prompts/prompt_nikki_setup".source = ./dotfiles/zsh/prompt_nikki_setup;
 
   programs = {
@@ -53,6 +56,7 @@ in rec {
       dotDir = ".config/zsh";
       enableCompletion = false;
       enableAutosuggestions = true;
+      history.share = false;
       ## enableSyntaxHighlighting = true;
 
       initExtra = ''
