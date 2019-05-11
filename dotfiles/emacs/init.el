@@ -140,14 +140,5 @@
        (windows-config)))
 
 
-(defun my-erc ()
-  (interactive)
-  (erc :server "new.crysalis.com"
-       :port 16667
-       :password erc-password
-       :nick "lemonpie"
-       :full-name "Catastrophic Failure Detected"))
-
-
 (setenv "PAGER" "cat")
 
