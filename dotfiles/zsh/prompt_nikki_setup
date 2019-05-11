@@ -1,0 +1,31 @@
+## -*- shell-script -*-
+### Theme based on Kwpolska's oh-my-zsh theme from here: https://github.com/Kwpolska/kw.zsh-theme
+
+
+prompt_nikki_setup () {
+	setopt noxtrace noksharrays localoptions
+	autoload -Uz vcs_info
+
+	zstyle ':vcs_info:*' check-for-changes true
+	zstyle ':vcs_info:*' formats "%1.1s%u%c "
+	PS1='%F{red}[%B%F{yellow}%n%b%F{red}@%m %F{magenta}%1~%F{red}]%F{cyan}%2v%f%(#.%F{red}#.%F{green}%%%f) '
+	RPS1='%F{magenta}%~ %(?.%F{green}.%F{red})%v%f'
+
+  [[ -n "$IN_NIX_SHELL" ]] && PS1="%F{red}[NIX]$PS1"
+	prompt_opts=( cr subst percent )
+	add-zsh-hook precmd prompt_nikki_precmd
+}
+
+prompt_nikki_precmd () {
+	local exstatus=$?
+  local git_dir git_ref
+  setopt noxtrace noksharrays localoptions unset
+
+	psvar=()
+	[[ $exstatus -ge 128 ]] && psvar[1]="$exstatus/"$signals[$exstatus-128] || psvar[1]="$exstatus"
+  vcs_info
+  [[ -n $vcs_info_msg_0_ ]] && psvar[2]="${vcs_info_msg_0_//u/*}"
+}
+
+
+prompt_nikki_setup "$@"
