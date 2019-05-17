@@ -29,14 +29,13 @@ in rec {
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    defaultCacheTtl = 600;
+    defaultCacheTtl = 86400;
   };
 
   home.packages = [
     pkgs.ripgrep
     pkgs.htop
     pkgs.lsof
-    pkgs.sbcl
   ];
 
   home.file.".emacs.d/init.el".source = ./dotfiles/emacs/init.el;
@@ -60,9 +59,10 @@ in rec {
       ## enableSyntaxHighlighting = true;
 
       initExtra = ''
-         fpath+=$HOME/.zsh/prompts
-         autoload -U promptinit && promptinit
-         prompt nikki
+        fpath+=$HOME/.zsh/prompts
+        autoload -U promptinit && promptinit
+        prompt nikki
+        export PATH=$PATH:$HOME/.sbcl/bin
       '';
 
       shellAliases = {
@@ -75,7 +75,9 @@ in rec {
       sessionVariables = {
         EDITOR = "${pkgs.vim}/bin/vim";
         LESS   = "-FRSXM";
+        GUIX_LOCPATH = "$HOME/.guix-profile/lib/locale";
       };
+
     };
 
     home-manager = {
