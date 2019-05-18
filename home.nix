@@ -56,6 +56,7 @@ in rec {
       enableCompletion = false;
       enableAutosuggestions = true;
       history.share = false;
+      defaultKeymap = "emacs";
       ## enableSyntaxHighlighting = true;
 
       initExtra = ''
@@ -75,7 +76,6 @@ in rec {
       sessionVariables = {
         EDITOR = "${pkgs.vim}/bin/vim";
         LESS   = "-FRSXM";
-        GUIX_LOCPATH = "$HOME/.guix-profile/lib/locale";
       };
 
     };
