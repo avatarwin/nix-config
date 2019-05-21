@@ -61,6 +61,8 @@ in rec {
       ## enableSyntaxHighlighting = true;
 
       initExtra = ''
+        [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]] && \
+            . $HOME/.nix-profile/etc/profile.d/nix.sh
         fpath+=$HOME/.zsh/prompts
         autoload -U promptinit && promptinit
         prompt nikki
