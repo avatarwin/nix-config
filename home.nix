@@ -40,7 +40,8 @@ in rec {
 
   home.file.".emacs.d/init.el".source = ./dotfiles/emacs/init.el;
   home.file.".emacs.d/custom.el".source = ./dotfiles/emacs/custom.el;
-  home.file.".config/sakura/sakura.conf".source = ./dotfiles/sakura.conf;
+  home.file.".config/sakura/sakura.conf".source = ./dotfiles/sakura/sakura.conf;
+  home.file.".config/bspwm/bspwmrc".source = ./dotfiles/bspwm/bspwmrc;
 
   ## This should really be in ${zsh.dotDir}...
 
