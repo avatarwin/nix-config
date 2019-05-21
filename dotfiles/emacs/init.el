@@ -51,7 +51,7 @@
 (straight-use-package 'nim-mode)
 (straight-use-package 'nix-mode)
 
-(straight-use-package 'pmdm)
+;;(straight-use-package 'pmdm)
 (straight-use-package 'persistent-scratch)
 (straight-use-package 'projectile)
 (straight-use-package 'pyvenv)
